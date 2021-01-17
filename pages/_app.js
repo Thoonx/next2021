@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Nav />
+      {/*
     <AnimatePresence exitBeforeEnter>
       <motion.div 
         key={Math.floor(Math.random() * 1000000)} 
@@ -37,10 +38,11 @@ function MyApp({ Component, pageProps }) {
           default: {duration: .2}, 
           ease: 'easeInOut'
         }}
-      >
+      >*/}
            <Component {...pageProps} />
-    </motion.div>
+    {/*</motion.div>
   </AnimatePresence>
+*/}
   </>
   
   )

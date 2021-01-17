@@ -18,6 +18,7 @@ const AccordionWrapper = ({children}) => {
 			{children.map( (accordion, index) => (
 				
 				<div 
+				key={index}
 				  onClick={()=> toggle(index)} 
 				  className={activeAccordion == `accordion-${index}` ? 'show-content' : 'hide'}>
 					  {accordion}

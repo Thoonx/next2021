@@ -5,7 +5,7 @@ const Posts = ({data, title}) => {
 		<>
 			<h1>{title}</h1>
 			{data.map( post => (
-			<Link href={`/posts/${post.slug}`} key={post.id}>
+			<Link href={`/?slug=${post.slug}`} as={`/posts/${post.slug}`} key={post.id} scroll={false}>
 				<a>
 					{post.featured_image.thumbnail && <img src={post.featured_image.thumbnail} style={{width: 200}}/>}
 					<small>Published: {post.date}</small>

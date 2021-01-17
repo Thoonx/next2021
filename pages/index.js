@@ -5,14 +5,21 @@ import Posts from '../components/Posts'
 import Tab from '../components/Tabs/Tab'
 import TabContainer from '../components/Tabs/TabContainer'
 import AccordionWrapper from '../components/Accordion/AccordionWrapper'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import PostsModal from '../components/PostsModal'
 
 export default function Home({data}) {
 
+  const router = useRouter()
   return (
     <div>
       <Head>
         <title>Posts</title>
       </Head>
+
+
+      <PostsModal slug={router.query.slug} data={data} isOpen={!!router.query.slug}/>
 
       <Component 
         bg="https://unsplash.it/400" 
@@ -37,7 +44,7 @@ You can watch as much as you want, whenever you want without a single commercial
         
       </AccordionWrapper>
 
-
+<Link href="/?=contact" as="/contact">PROBA LINK</Link>
 
       <TabContainer>
         <Tab title="Tab 1" content="Lorem ipsum dolor sit amet 1"/>
