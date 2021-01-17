@@ -1,65 +1,72 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Accordion from '../components/Accordion/Accordion'
+import Component from '../components/Component'
+import Posts from '../components/Posts'
+import Tab from '../components/Tabs/Tab'
+import TabContainer from '../components/Tabs/TabContainer'
+import AccordionWrapper from '../components/Accordion/AccordionWrapper'
 
-export default function Home() {
+export default function Home({data}) {
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Posts</title>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Component 
+        bg="https://unsplash.it/400" 
+        bgColor="red" 
+        title="Next.js New Component" 
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+      />
+      <Component 
+        bg="https://unsplash.it/500" 
+        bgColor="#00b8ff" 
+        title="Reusable Component" 
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+      />
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+      <AccordionWrapper>
+        <Accordion title="Title 1" content="Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!"/>
+        <Accordion title="Title 2" content="Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from EUR7.99 to EUR11.99 a month. No extra costs, no contracts."/>
+        <Accordion title="Title 3" content="Watch anywhere, anytime, on an unlimited number of devices. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles."/>
+        
+      </AccordionWrapper>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <TabContainer>
+        <Tab title="Tab 1" content="Lorem ipsum dolor sit amet 1"/>
+        <Tab title="Tab 2" content="Lorem ipsum dolor sit amet 2"/>
+        <Tab title="Tab 3" content="Lorem ipsum dolor sit amet 3"/>
+        <Tab title="Tab 4" content="Lorem ipsum dolor sit amet 4"/>
+      </TabContainer>
+
+      {data.data &&
+        data.data.status === 404 ? <h1>No data</h1>
+        :
+        <>
+          <Posts data={data.slice(0,4)} title='All Posts'/> 
+          <Posts data={data.slice(0,2)} title='Last two posts'/> 
+        </>
+      }
+
+      
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`https://antuncrnja.com/w/wp-json/ac/v1/posts`)
+  const data = await res.json()
+  
+  return {
+    props: {
+      data,
+    },revalidate: 1
+  }
 }

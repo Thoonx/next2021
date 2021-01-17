@@ -1,0 +1,22 @@
+{
+	"posts": [
+		{
+			"title": "Title 1",
+			"slug": "title1",
+			"id": 1,
+			"content": "<p>This is content</p>"
+		},
+		{
+			"title": "Title 2",
+			"slug": "title2",
+			"id": 2,
+			"content": "<p>This is content</p>"
+		},
+		{
+			"title": "Title 3",
+			"slug": "title3",
+			"id": 3,
+			"content": "<p>This is content</p>"
+		}
+	]
+}
