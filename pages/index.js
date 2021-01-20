@@ -8,7 +8,8 @@ import AccordionWrapper from '../components/Accordion/AccordionWrapper'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import PostsModal from '../components/PostsModal'
-import ContactForm from '../components/ContactForm'
+import Modal from '../components/Modal'
+import MotionComponent from '../components/MotionComponent'
 
 export default function Home({data}) {
 
@@ -19,7 +20,10 @@ export default function Home({data}) {
         <title>Posts</title>
       </Head>
 
-<ContactForm />
+<MotionComponent />
+      <Modal title="This is modal" content="This is content "/>
+      <Modal title="This is modal 2" content="This is content "/>
+
       <PostsModal slug={router.query.slug} data={data} isOpen={!!router.query.slug}/>
 
       <Component 

@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion'
 import Nav from './Nav'
 /*GIT
     git init
@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
           ease: 'easeInOut'
         }}
       >*/}
-           <Component {...pageProps} />
+          <AnimateSharedLayout> <Component {...pageProps}/></AnimateSharedLayout>
     {/*</motion.div>
   </AnimatePresence>
 */}
