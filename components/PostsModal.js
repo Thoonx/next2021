@@ -5,9 +5,9 @@ const PostsModal = ({slug, data, isOpen}) => {
 	const router = useRouter()
 	const filterData =  data.filter( post => post.slug === slug)
 
-function handleModal(){
-isOpen = false
-}
+		function handleModal(){
+		isOpen = false
+		}
 
 	if(filterData.length <= 0) return <div></div>
 	else{

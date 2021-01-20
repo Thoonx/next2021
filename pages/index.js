@@ -8,6 +8,7 @@ import AccordionWrapper from '../components/Accordion/AccordionWrapper'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import PostsModal from '../components/PostsModal'
+import ContactForm from '../components/ContactForm'
 
 export default function Home({data}) {
 
@@ -18,7 +19,7 @@ export default function Home({data}) {
         <title>Posts</title>
       </Head>
 
-
+<ContactForm />
       <PostsModal slug={router.query.slug} data={data} isOpen={!!router.query.slug}/>
 
       <Component 
