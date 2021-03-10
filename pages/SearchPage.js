@@ -15,7 +15,9 @@ const SearchPage = ({posts}) => {
 	return ( 
 		<>
 		  <h1>SearchPage</h1>
-		  {posts.length === 0 && <p>There is no data for: {query}</p>}
+		  {posts.length === 0 ? <p>There are no posts that match: {query}</p> 
+		  : <p>Showing {posts.length} results for: {query}</p>
+		  }
 		
 	
 

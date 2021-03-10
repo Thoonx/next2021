@@ -37,6 +37,7 @@ function handleTheme(e){
 	  <Link href='/about-page'><a>About</a></Link>
 	  <Link href='/contact'><a>Contact</a></Link>
     <Link href='/Blog'><a>Blog</a></Link>
+    <Link href='/Swr'><a>Swr</a></Link>
     <Search />
 
     <button className="theme" onClick={handleTheme}>{

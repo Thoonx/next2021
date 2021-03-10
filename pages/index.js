@@ -10,16 +10,55 @@ import { useRouter } from 'next/router'
 import PostsModal from '../components/PostsModal'
 import Modal from '../components/Modal'
 import MotionComponent from '../components/MotionComponent'
+import { useState } from 'react'
+import Login from '../components/Login'
+import SendMail from '../components/SendMail'
 
 export default function Home({data}) {
 
   const router = useRouter()
+
+
+  const [ obj, setObj ] = useState([
+    {
+      name: 'John', 
+      id: 1, 
+      test: [1,2,3]
+    },{
+      name: 'Jenny', 
+      id: 2, 
+      test: [4,5,6]
+    }
+  ])
+
+console.log(obj)
+
+function editObj({id=1}){
+  setObj(obj.map( x => (
+    x.id == id ? {...x, test: [...x.test, 'New in array']} : x
+  )))
+}
+
+function addObj() {
+  setObj( [...obj, {name: 'New Name', id: 5, test: [1,2,3]}  ] )
+}
+
+function deleteObj({id=2}) {
+  setObj(obj.filter( x => x.id != id))
+}
+
   return (
     <div>
       <Head>
         <title>Posts</title>
       </Head>
 
+      <Login/>
+     <SendMail/>
+
+<button onClick={addObj}>Add</button>
+<button onClick={editObj}>Edit</button>
+<button onClick={deleteObj}>Delete</button>
 <MotionComponent />
       <Modal title="This is modal" content="This is content "/>
       <Modal title="This is modal 2" content="This is content "/>

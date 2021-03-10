@@ -1,6 +1,10 @@
 import '../styles/globals.css'
 import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion'
 import Nav from './Nav'
+
+// Import Swiper styles
+import 'swiper/swiper-bundle.min.css';
+
 /*GIT
     git init
 
@@ -11,7 +15,7 @@ import Nav from './Nav'
 
         sudo git add .
         sudo git commit -m 'update'
-        sudo git push -u origin master -f
+        sudo git push -u origin main -f
 
     git push -u origin master
     git checkout dev
