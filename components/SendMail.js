@@ -7,7 +7,9 @@ export default function SendMail(){
 			method: 'POST',
 			headers: {
 				'Content-Type': 'multipart/form-data',
-				mode: 'no-cors'
+				'accept': 'application/json',
+				'Authorization': `Bearer ${localStorage.getItem('token')}`,
+				'Access-Control-Allow-Origin': '*'
 			},
 				body: JSON.stringify({
 					'your-name': 'admin', 
