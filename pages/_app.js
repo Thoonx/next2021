@@ -21,6 +21,7 @@ import 'swiper/swiper-bundle.min.css';
     git checkout dev
     git pull 
 */
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
