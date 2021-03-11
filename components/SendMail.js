@@ -10,6 +10,7 @@ export default function SendMail(){
 
     const handleSubmit = e => {
 		e.preventDefault();
+		setMailMessage('Loading...')
 
 		let formData = new FormData();
 		formData.append('your-name', name);
@@ -25,7 +26,10 @@ export default function SendMail(){
 			.then(response => response.json())
 			.then(mailData => {
 				console.error(mailData)
-				setMailMessage(mailData.message)
+				setMailMessage(mailData.message);
+				setTimeout( ()=> {
+					setMailMessage('')
+				}, 2000)
 			})
 			.catch(error => console.error('Error:', error));
 			
