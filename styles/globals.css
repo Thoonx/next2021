@@ -75,6 +75,34 @@ nav svg{
   margin: 0 auto;
 }
 
+.form{
+  padding: 30px;
+  width: 350px;
+  font-size: 14px;
+  background: #27275c;
+}
+
+.form input{
+  margin: 15px 0 ;
+  display: block;
+  width: 100%;
+  height: 45px;
+  border-radius: 50px;
+  padding: 5px 10px;
+  border: 0;
+  outline: none;
+}
+
+.form input[type=submit]{
+background: #da3838;
+color: white;
+outline: none;
+border: none;
+cursor: pointer;
+}
+
+
+
 
 
 

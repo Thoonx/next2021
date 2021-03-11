@@ -54,13 +54,14 @@ function deleteObj({id=2}) {
         <title>Posts</title>
       </Head>
 
-      <Login/>
+   
      <SendMail/>
-     <AddPost/>
-
+   
+{/*
 <button onClick={addObj}>Add</button>
 <button onClick={editObj}>Edit</button>
 <button onClick={deleteObj}>Delete</button>
+*/}
 <MotionComponent />
       <Modal title="This is modal" content="This is content "/>
       <Modal title="This is modal 2" content="This is content "/>
