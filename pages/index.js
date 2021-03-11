@@ -13,6 +13,7 @@ import MotionComponent from '../components/MotionComponent'
 import { useState } from 'react'
 import Login from '../components/Login'
 import SendMail from '../components/SendMail'
+import AddPost from '../components/addPost'
 
 export default function Home({data}) {
 
@@ -31,7 +32,7 @@ export default function Home({data}) {
     }
   ])
 
-console.log(obj)
+console.table(obj)
 
 function editObj({id=1}){
   setObj(obj.map( x => (
@@ -55,6 +56,7 @@ function deleteObj({id=2}) {
 
       <Login/>
      <SendMail/>
+     <AddPost/>
 
 <button onClick={addObj}>Add</button>
 <button onClick={editObj}>Edit</button>
